@@ -27,7 +27,9 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "http://mhvtfs01:8080/taxact/nuget": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://awstfs.taxact.com/tfs/Software%20Development/_packaging/TaxActPackageFeed/nuget/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp2.2": {
