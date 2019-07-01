@@ -1,37 +1,31 @@
 using System;
 using System.Collections.Generic;
 
-namespace GradeBook
-{
-  class Book
-  {
+namespace GradeBook {
+  public class Book {
     //constractor
-    public Book(string name)
-    {
-      grades = new List<double>();
+    public Book (string name) {
+      grades = new List<double> ();
       this.name = name;
     }
 
-    public void AddGrade(double grade)
-    {
-      grades.Add(grade);
+    public void AddGrade (double grade) {
+      grades.Add (grade);
     }
 
-    public void ShowStatiscs()
-    {
-      var result = 0.0;
-      var highGrade = double.MinValue;
-      var lowGrade = double.MaxValue;
-      foreach (var number in grades)
-      {
-        highGrade = Math.Max(number, highGrade);
-        lowGrade = Math.Min(number, lowGrade);
-        result += number;
+    public Statistics GetStatistics () {
+      var result = new Statistics ();
+      result.Average = 0.0;
+
+      result.High = double.MinValue;
+      result.Low = double.MaxValue;
+      foreach (var grade in grades) {
+        result.High = Math.Max (grade, result.High);
+        result.Low = Math.Min (grade, result.Low);
+        result.Average += grade;
       }
-      result /= grades.Count;
-      Console.WriteLine($"The highGrade grade is {highGrade:N1}");
-      Console.WriteLine($"The lowGrade grade is {lowGrade:N1}");
-      Console.WriteLine($"The average grade is {result:N1}");
+      result.Average /= grades.Count;
+      return result;
     }
 
     // fields
